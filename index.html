@@ -7,20 +7,57 @@
          <meta name="keywords" content="YouTube thumbnail generator, free thumbnail maker, create YouTube thumbnails, video thumbnail analyzer">
          <title>Free YouTube Thumbnail Generator</title>
          <script src="https://cdn.tailwindcss.com"></script>
+         <style>
+             /* Ensure canvas fits within container and is responsive */
+             #thumbnailCanvas {
+                 max-width: 100%;
+                 height: auto;
+                 aspect-ratio: 16 / 9;
+                 border: 2px solid #1f2937; /* Tailwind's gray-800 */
+                 box-sizing: border-box; /* Include border in dimensions */
+             }
+             /* Center canvas within editor section */
+             #editor {
+                 max-width: 100%;
+                 overflow: hidden; /* Prevent overflow */
+             }
+             /* Optimize for mobile */
+             @media (max-width: 768px) {
+                 #editor {
+                     padding: 1rem; /* Reduce padding on mobile */
+                 }
+                 #controls {
+                     flex-direction: column; /* Stack controls vertically */
+                     align-items: stretch; /* Full width for inputs */
+                 }
+                 #controls > * {
+                     width: 100%; /* Full width for control elements */
+                     margin-bottom: 0.5rem; /* Space between controls */
+                 }
+                 /* Reduce background image size for mobile */
+                 body {
+                     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.jpg') !important;
+                     background-size: cover !important;
+                     background-position: center !important;
+                 }
+             }
+         </style>
      </head>
      <body class="bg-gray-100 bg-[url('background.jpg')] bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.jpg');">
          <header class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center py-8">
-             <h1 class="text-4xl font-bold">Free YouTube Thumbnail Generator</h1>
-             <p class="text-lg mt-2">Create stunning thumbnails in minutes!</p>
+             <h1 class="text-3xl md:text-4xl font-bold">Free YouTube Thumbnail Generator</h1>
+             <p class="text-base md:text-lg mt-2">Create stunning thumbnails in minutes!</p>
          </header>
-         <main class="max-w-7xl mx-auto p-6">
-             <section id="editor" class="bg-white rounded-lg shadow-lg p-6 mb-6">
+         <main class="max-w-7xl mx-auto p-4 sm:p-6">
+             <section id="editor" class="bg-white rounded-lg shadow-lg p-4 sm:p-6 mb-6">
                  <div class="mb-4">
                      <label class="block text-gray-700 font-semibold mb-2">Analyze YouTube Video</label>
                      <input type="text" id="videoUrl" placeholder="Enter YouTube video URL" class="w-full p-2 border rounded">
-                     <button onclick="analyzeVideo()" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Analyze Video</button>
+                     <button onclick="analyzeVideo()" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full sm:w-auto">Analyze Video</button>
                  </div>
-                 <canvas id="thumbnailCanvas" width="1280" height="720" class="border-2 border-gray-800 mx-auto"></canvas>
+                 <div class="w-full flex justify-center">
+                     <canvas id="thumbnailCanvas" width="1280" height="720"></canvas>
+                 </div>
                  <div id="controls" class="flex flex-wrap gap-4 justify-center mt-4">
                      <input type="file" id="imageInput" accept="image/*" class="p-2 border rounded">
                      <input type="text" id="textInput" placeholder="Enter text for thumbnail" class="p-2 border rounded">
@@ -38,8 +75,8 @@
                      <button onclick="downloadThumbnail()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Download Thumbnail</button>
                  </div>
              </section>
-             <section id="premium" class="bg-white rounded-lg shadow-lg p-6 mb-6">
-                 <h2 class="text-2xl font-semibold mb-4">Premium Templates</h2>
+             <section id="premium" class="bg-white rounded-lg shadow-lg p-4 sm:p-6 mb-6">
+                 <h2 class="text-xl sm:text-2xl font-semibold mb-4">Premium Templates</h2>
                  <p class="mb-4">Unlock exclusive templates for gaming, vlogs, and more for $5!</p>
                  <a href="https://buymeacoffee.com/craigsthumbnails/e/398308" target="_blank" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">Get Premium ($5)</a>
              </section>
