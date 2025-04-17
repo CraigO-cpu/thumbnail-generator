@@ -29,8 +29,8 @@ const canvas = new fabric.Canvas('thumbnailCanvas');
          const color = document.getElementById('textColor').value;
          if (text) {
              const textObj = new fabric.Text(text, {
-                 left: 100,
-                 top: 100,
+                 left: 50, /* Adjusted for smaller canvas */
+                 top: 50,
                  fontSize: fontSize,
                  fill: color,
                  fontFamily: 'Arial',
