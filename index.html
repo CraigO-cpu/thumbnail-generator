@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta name="description" content="Free YouTube Thumbnail Generator - Create eye-catching thumbnails easily with video analysis">
+         <meta name="keywords" content="YouTube thumbnail generator, free thumbnail maker, create YouTube thumbnails, video thumbnail analyzer">
+         <title>Free YouTube Thumbnail Generator</title>
+         <script src="https://cdn.tailwindcss.com"></script>
+     </head>
+     <body class="bg-gray-100 bg-[url('background.jpg')] bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.jpg');">
+         <header class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center py-8">
+             <h1 class="text-4xl font-bold">Free YouTube Thumbnail Generator</h1>
+             <p class="text-lg mt-2">Create stunning thumbnails in minutes!</p>
+         </header>
+         <main class="max-w-7xl mx-auto p-6">
+             <section id="editor" class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                 <div class="mb-4">
+                     <label class="block text-gray-700 font-semibold mb-2">Analyze YouTube Video</label>
+                     <input type="text" id="videoUrl" placeholder="Enter YouTube video URL" class="w-full p-2 border rounded">
+                     <button onclick="analyzeVideo()" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Analyze Video</button>
+                 </div>
+                 <canvas id="thumbnailCanvas" width="1280" height="720" class="border-2 border-gray-800 mx-auto"></canvas>
+                 <div id="controls" class="flex flex-wrap gap-4 justify-center mt-4">
+                     <input type="file" id="imageInput" accept="image/*" class="p-2 border rounded">
+                     <input type="text" id="textInput" placeholder="Enter text for thumbnail" class="p-2 border rounded">
+                     <select id="fontSize" class="p-2 border rounded">
+                         <option value="40">Small (40px)</option>
+                         <option value="60" selected>Medium (60px)</option>
+                         <option value="80">Large (80px)</option>
+                     </select>
+                     <input type="color" id="textColor" value="#ffffff" class="p-2">
+                     <select id="templateSelect" class="p-2 border rounded">
+                         <option value="none">No Template</option>
+                         <option value="gaming" disabled>Premium: Gaming Template (Unlock)</option>
+                     </select>
+                     <button onclick="addText()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Text</button>
+                     <button onclick="downloadThumbnail()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Download Thumbnail</button>
+                 </div>
+             </section>
+             <section id="premium" class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                 <h2 class="text-2xl font-semibold mb-4">Premium Templates</h2>
+                 <p class="mb-4">Unlock exclusive templates for gaming, vlogs, and more for $5!</p>
+                 <a href="https://buymeacoffee.com/craigsthumbnails/e/398308" target="_blank" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">Get Premium ($5)</a>
+             </section>
+             <section id="ads" class="text-center">
+                 <div class="ad-placeholder inline-block w-[300px] h-[250px] bg-gray-200 leading-[250px] text-gray-600">Ad Space (Google AdSense will go here)</div>
+                 <p class="mt-4">Recommended Tools: <a href="https://www.canva.com/affiliate-link" target="_blank" class="text-blue-500 underline">Canva</a> | <a href="https://www.tubebuddy.com/affiliate-link" target="_blank" class="text-blue-500 underline">TubeBuddy</a></p>
+             </section>
+         </main>
+         <footer class="bg-gray-800 text-white text-center py-4">
+             <p><a href="privacy.html" class="text-blue-300 underline">Privacy Policy</a> | <a href="about.html" class="text-blue-300 underline">About</a></p>
+         </footer>
+         <script>
+           window.YOUTUBE_API_KEY = 'YOUR_RENDER_API_KEY';
+         </script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+         <script src="script.js"></script>
+     </body>
+     </html>
